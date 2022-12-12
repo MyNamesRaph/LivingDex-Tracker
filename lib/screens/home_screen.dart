@@ -40,7 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   focusColor: Theme.of(context).shadowColor,
                                   highlightColor: Theme.of(context).shadowColor,
                                   onTap: () {
-                                    print("Hello");
+                                    Navigator.pushNamed(context, '/dex', arguments: gen.number);
                                   },
                                   child: Row(
                                     children: [

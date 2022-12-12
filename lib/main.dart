@@ -25,15 +25,24 @@ class MyApp extends StatelessWidget {
             fontFamily: 'Pokemon',
             color: Color.fromARGB(255, 255, 255, 255),
           ),
-            titleSmall: TextStyle(
-          fontSize: 100.0,
-          fontWeight: FontWeight.bold,
-          fontFamily: 'Pokemon',
-          color: Color.fromARGB(255, 255, 255, 255),
-        )
+          titleSmall: TextStyle(
+            fontSize: 100.0,
+            fontWeight: FontWeight.bold,
+            fontFamily: 'Pokemon',
+            color: Color.fromARGB(255, 255, 255, 255),
+          ),
+          bodySmall: TextStyle(
+            fontSize: 20.0,
+            fontWeight: FontWeight.bold,
+            fontFamily: 'Pokemon',
+            color: Color.fromARGB(255, 255, 255, 255),
+          ),
         ),
       ),
-      home: const DexScreen(),
+      home: const HomeScreen(),
+      routes: {
+        '/dex': (context) => const DexScreen(),
+      },
     );
   }
 }
