@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:livingdex_tracker/data/data_helper.dart';
+import 'package:livingdex_tracker/data/generation_helper.dart';
+import 'package:livingdex_tracker/screens/dex_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -27,7 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 const Spacer(),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: DataHelper.generations.map((gen) {
+                  children: GenerationHelper.generations.map((gen) {
                     return
                       Align(
                           alignment: Alignment.centerLeft,
@@ -40,7 +41,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                   focusColor: Theme.of(context).shadowColor,
                                   highlightColor: Theme.of(context).shadowColor,
                                   onTap: () {
-                                    Navigator.pushNamed(context, '/dex', arguments: gen.number);
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => DexScreen(generation: gen.number),
+                                      ),
+                                    );
                                   },
                                   child: Row(
                                     children: [
@@ -51,16 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           style: Theme.of(context).textTheme.titleLarge,
                                           textAlign: TextAlign.left,
                                         ),
-                                      ),
-                                      SizedBox(
-                                        width: MediaQuery.of(context).size.width/2,
-                                        child: Text(
-                                          //TODO: Get progress from gen
-                                          "999/999",
-                                          style: Theme.of(context).textTheme.titleLarge,
-                                          textAlign: TextAlign.right,
-                                        ),
-                                      ),
+                                      )
                                     ],
                                   )
                                 ),
@@ -78,11 +75,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   }).toList(),
                 ),
                 const Spacer(),
-                //TODO: place this and make it pretty
-                Container(
-                  child:LinearProgressIndicator()
-                )
-
               ],
             )
 

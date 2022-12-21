@@ -30,6 +30,8 @@ dependencies:
   http: ^0.13.5
   flutter:
     sdk: flutter
+  sqflite:
+  path:
 
 
 
@@ -59,6 +61,7 @@ flutter:
         - asset: assets/fonts/pokemon_fire_red.ttf
   assets:
     - assets/images/
+    - assets/images/types/
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

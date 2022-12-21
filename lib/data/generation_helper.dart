@@ -1,4 +1,4 @@
-class DataHelper {
+class GenerationHelper {
   static const generations = [
     Generation(1, "I"),
     Generation(2, "II"),

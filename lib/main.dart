@@ -3,6 +3,8 @@ import 'package:livingdex_tracker/screens/dex_screen.dart';
 import 'package:livingdex_tracker/screens/home_screen.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+
   runApp(const MyApp());
 }
 
@@ -41,7 +43,7 @@ class MyApp extends StatelessWidget {
       ),
       home: const HomeScreen(),
       routes: {
-        '/dex': (context) => const DexScreen(),
+        '/dex': (context) => const DexScreen(generation: 1,),
       },
     );
   }

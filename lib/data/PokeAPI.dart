@@ -12,7 +12,15 @@ class PokeAPI {
     return pokemonJson.map((p) => Pokemon.fromJson(p)).toList();
   }
 
+  Future<Map<String,dynamic>> fetchPokemonInfo(int id) async {
+    final response = await http.get(
+      Uri.parse("https://pokeapi.co/api/v2/pokemon/$id"),
+      headers: {'Accept': 'application/json'},
+    );
 
+    final Map<String,dynamic> info = json.jsonDecode(response.body);
+    return info;
+  }
 }
 
 class Pokemon {
@@ -29,6 +37,9 @@ class Pokemon {
       id: json['url'].split('/')[6],
     );
   }
-}
 
-//TODO: cache the data
+  @override
+  String toString() {
+    return 'Pokemon{name: $name, url: $url, id: $id}';
+  }
+}

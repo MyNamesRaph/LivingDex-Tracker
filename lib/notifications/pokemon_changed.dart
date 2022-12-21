@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import '../data/models/pokemon.dart';
 
-class GenChanged extends Notification {
-  final int val;
-  GenChanged(this.val);
+class PokemonChanged extends Notification {
+  final PokemonModel val;
+  PokemonChanged(this.val);
 }

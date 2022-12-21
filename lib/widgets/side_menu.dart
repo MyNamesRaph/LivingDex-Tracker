@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:livingdex_tracker/data/data_helper.dart';
+import 'package:livingdex_tracker/data/generation_helper.dart';
 import 'package:livingdex_tracker/notifications/gen_changed.dart';
 
 //Source: https://maffan.medium.com/how-to-create-a-side-menu-in-flutter-a2df7833fdfb
@@ -15,7 +15,7 @@ class SideMenu extends StatelessWidget {
       backgroundColor: Theme.of(context).primaryColor,
       child: ListView(
         padding: EdgeInsets.zero,
-        children: DataHelper.generations.map<Widget>((gen) =>
+        children: GenerationHelper.generations.map<Widget>((gen) =>
             ListTile(
               title: Text(
                 gen.text,
@@ -24,7 +24,7 @@ class SideMenu extends StatelessWidget {
               ),
               onTap: () => {
                 GenChanged(gen.number).dispatch(context)
-                },
+              },
             )
         ).toList()..insert(0,
           DrawerHeader(
